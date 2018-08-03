@@ -1,0 +1,6 @@
+[ver:1,total:1320]
+.gtm/terminal.app:780,1533272400:180,1533276000:600,r
+package.json:400,1533276000:400,r
+Dockerfile:100,1533276000:100,m
+.circleci/config.yml:20,1533276000:20,m
+bin/clean-cache.js:20,1533276000:20,r
