@@ -1,3 +1,7 @@
 [ver:1,total:240]
 .gtm/terminal.app:150,1533258000:150,r
 .circleci/config.yml:90,1533258000:90,m
+
+[ver:1,total:60]
+.circleci/config.yml:30,1533258000:30,m
+.gtm/terminal.app:30,1533258000:30,r
