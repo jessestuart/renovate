@@ -13,10 +13,9 @@ WORKDIR /usr/src/app/
 
 RUN \
   apk add --quiet --no-cache git openssh-client && \
-  (hash node &>/dev/null || apk add --no-cache nodejs-current)
+  npm i -g yarn
 
-COPY package.json .
-COPY yarn.lock .
+COPY package.json yarn.lock /usr/src/app/
 RUN yarn --production && yarn cache clean
 COPY lib lib
 

@@ -73,8 +73,7 @@ shared: &shared
           docker build \
             -t "${IMAGE_ID}:${VERSION}-${GOARCH}" \
             --build-arg version=$VERSION \
-            --build-arg target=$TARGET \
-            --build-arg goarch=$GOARCH .
+            --build-arg target=$TARGET .
 
     - run:
         name: Push image to Docker Hub.
@@ -110,7 +109,7 @@ jobs:
       GOARCH: arm
       QEMU_ARCH: arm
       TAG: arm
-      TARGET: arm32v6/node:9-alpine
+      TARGET: arm32v6/node:10-alpine
 
   # ===================================
   # ===================================
