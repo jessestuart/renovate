@@ -13,11 +13,10 @@ WORKDIR /usr/src/app/
 
 RUN \
   apk add --quiet --no-cache git openssh-client && \
-  (hash node &>/dev/null || apk add --no-cache nodejs-current)
+  npm i -g yarn@rc
 
-COPY package.json .
-COPY yarn.lock .
-RUN yarn --production && yarn cache clean
+COPY package.json yarn.lock ./
+RUN yarn --production -s --no-progress && yarn cache clean
 COPY lib lib
 
 ENTRYPOINT ["node", "/usr/src/app/lib/renovate.js"]
