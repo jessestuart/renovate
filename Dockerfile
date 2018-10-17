@@ -15,11 +15,12 @@ WORKDIR /usr/src/app/
 
 RUN \
   apk add --quiet --no-cache git openssh-client ca-certificates php php-mbstring php-openssl php-zip php-zlib composer
-  (hash node &>/dev/null || apk add --no-cache nodejs-current)
+  (hash node &>/dev/null || apk add --no-cache nodejs-current) && \
+  apk add --quiet --no-cache git openssh-client && \
+  npm i -g yarn@rc
 
-COPY package.json .
-COPY yarn.lock .
-RUN yarn --production && yarn cache clean
+COPY package.json yarn.lock ./
+RUN yarn --production -s --no-progress && yarn cache clean
 COPY lib lib
 
 COPY --from=golang /usr/local/go/bin/go /bin/go
