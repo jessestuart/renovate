@@ -12,7 +12,8 @@ LABEL version="$version"
 WORKDIR /usr/src/app/
 
 RUN \
-  apk add --quiet --no-cache git openssh-client
+  apk add --quiet --no-cache git openssh-client && \
+  npm i -g yarn
 
 COPY package.json yarn.lock ./
 RUN yarn --production -s --no-progress && yarn cache clean
