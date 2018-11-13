@@ -1,6 +1,7 @@
 *
-!package.json
-!yarn.lock
+!bin/yarn*
 !hooks
 !lib
+!package.json
 !qemu-*
+!yarn.lock
