@@ -39,7 +39,7 @@ shared: &shared
     - setup_remote_docker:
         docker_layer_caching: true
 
-    - run: apk add --no-cache curl jq
+    - run: apk add --upgrade --no-cache curl jq
 
     - run:
         name: Load env vars.
@@ -129,7 +129,7 @@ jobs:
       - run:
           name: Determine repo version.
           command: |
-            apk add --no-cache curl jq
+            apk add --upgrade --no-cache curl jq
             echo 'export VERSION=$(curl -s https://api.github.com/repos/${GITHUB_REPO}/releases | jq -r "sort_by(.tag_name)[-1].tag_name")' >> $BASH_ENV
 
       - run:
